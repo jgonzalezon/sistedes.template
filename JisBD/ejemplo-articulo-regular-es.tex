@@ -9,11 +9,13 @@
 \usepackage[spanish,es-tabla]{babel}
 
 \usepackage{graphicx}
+
 % Usado para mostrar la figura de ejemplo. 
 %
 \begin{document}
 %
-\title{Título de la contribución}
+\title{Viabilidad de Large Language Models ejecutados en dispositivos on-edge para asistencia administrativa en el sector agroalimentario}
+
 %
 %\titlerunning{Título abreviado}
 % Si el título del artículo es demasiado largo para el encabezado,
@@ -28,111 +30,73 @@ Tercer Autor\inst{3}\orcidID{2222--3333-4444-5555}}
 % Si hay más de dos autores, se usa 'et al.'
 %
 \institute{
-Dummy University, Nowhere, Spain\\
+Unizar, Zaragoza, Spain\\
 \email{primer@example.com}\\
-\and
-Great University, Nowhere, Spain\\
-\email{segundo@example.com}\\
-\url{http://www.example.com/segundo}
-\and
-Dummy Institute, Nowhere, Spain\\
-\email{\{segundo,tercer\}@example.com}
 }
 
 %
 \maketitle              % Componer el encabezado de la contribución
 %
 \begin{abstract}
-El resumen debe resumir brevemente el contenido del trabajo en~150--250 palabras.
+Los Large Language Models (LLMs) han demostrado un rendimiento sobresaliente en tareas de procesamiento del lenguaje natural cuando se ejecutan en infraestructuras cloud. Sin embargo, su dependencia de conectividad permanente, los requisitos de latencia y las preocupaciones relacionadas con la privacidad limitan su adopción en contextos profesionales que operan en entornos con recursos restringidos. En este trabajo se presenta una investigación en curso que analiza la viabilidad de ejecutar LLMs directamente en dispositivos on-edge, como teléfonos móviles, para asistir en tareas administrativas del sector agroalimentario.
 
-\keywords{primera palabra clave \and segunda palabra clave \and
-otra palabra clave}
+El artículo se centra en un caso de uso real: el apoyo al rellenado de documentación agrícola oficial en entornos rurales con conectividad limitada. Se discuten las restricciones impuestas por el hardware disponible, así como las limitaciones actuales de las herramientas de ingeniería del software para desplegar y evaluar este tipo de soluciones. Más que proponer una solución cerrada, el trabajo identifica problemas abiertos relacionados con el diseño, la evaluación y la integración de LLMs on-edge en aplicaciones reales, con el objetivo de fomentar la discusión y servir como punto de partida para futuras investigaciones y colaboraciones.
+
+\keywords{LLMs on-edge \and ingeniería del software \and dispositivos móviles \and sector agroalimentario}
+
 \end{abstract}
 %
 %
 %
-\section{Primera sección}
-\subsection{Subsección de muestra}
-Todos los párrafos se indentan, acorde a la configuración en español 
-proporcionada por el paquete \verb|babel|.
+\section{Introducción}
 
-\subsubsection{Encabezado de muestra (Tercer nivel)}
-Solo se deben numerar dos niveles de encabezados. Los encabezados de nivel
-inferior permanecen sin numerar; y se colocan en la misma línea que el texto
-que los sigue.
+Los Large Language Models (LLMs) están impulsando una nueva generación de sistemas capaces de comprender y generar lenguaje natural, pero su despliegue práctico sigue estando condicionado por requisitos computacionales y de memoria elevados. En particular, la ejecución en dispositivos móviles plantea un conjunto de restricciones específicas (memoria disponible, latencia, longitud de entrada y motor de inferencia), cuya caracterización empírica en escenarios reales se ha abordado mediante estudios de medida y análisis comparativo \cite{li_large_2024,yan_are_2025}. Estos trabajos muestran que, aunque la ejecución local es posible en determinadas condiciones, el rendimiento y la calidad dependen fuertemente del tamaño del modelo y de las optimizaciones aplicadas.
 
-\paragraph{Encabezado de muestra (Cuarto nivel)}
-La contribución no debe contener más de cuatro niveles de encabezados.
-La Tabla~\ref{tab1} muestra un resumen de todos los niveles de encabezado.
+En paralelo, la comunidad está convergiendo hacia el paradigma \emph{on-edge}/\emph{on-device} como alternativa (o complemento) a arquitecturas basadas en la nube, motivada por la reducción de latencia, la resiliencia ante conectividad intermitente y la necesidad de mantener los datos cerca de su origen. Diversas revisiones recientes sintetizan técnicas y desafíos para habilitar inferencia eficiente en dispositivos con recursos limitados, destacando estrategias basadas en modelos más pequeños, compresión y optimización de inferencia \cite{xu_-device_2024,wang_empowering_2025,friha_llm-based_2024}. No obstante, estas mismas revisiones subrayan problemas abiertos de ingeniería relacionados con evaluación reproducible, integración en aplicaciones reales y consideraciones de seguridad y confiabilidad.
 
-\begin{table}
-\centering
-\caption{Los títulos de las tablas deben colocarse arriba.}\label{tab1}
-\begin{tabular}{|l|l|l|}
-\hline
-Nivel de encabezado & Ejemplo & Tamaño y estilo\\
-\hline
-Título (centrado) &  {\Large\bfseries Lecture Notes} & 14 pt, negrita\\
-Encabezado nivel 1 &  {\large\bfseries 1 Introduction} & 12 pt, negrita\\
-Encabezado nivel 2 & {\bfseries 2.1 Printing Area} & 10 pt, negrita\\
-Encabezado nivel 3 & {\bfseries Run-in Heading in Bold.} Texto a continuación & 10 pt, negrita\\
-Encabezado nivel 4 & {\itshape Lowest Level Heading.} Texto a continuación & 10 pt, cursiva\\
-\hline
-\end{tabular}
-\end{table}
+Para aproximar los LLMs a escenarios restringidos se han propuesto familias de técnicas de compresión y ajuste eficiente, incluyendo cuantización, poda, distilación y enfoques de \emph{parameter-efficient fine-tuning} (PEFT), junto con taxonomías sistemáticas que evidencian la falta de marcos unificados que integren estas decisiones de diseño en pipelines de despliegue completos \cite{kim_efficient_2025}. En el contexto móvil, se exploran tanto arquitecturas sub-billion optimizadas para uso local \cite{liu_mobilellm_2024} como técnicas de cuantización específicamente orientadas a hardware móvil \cite{tan_mobilequant_2024}. Además, existen implementaciones tempranas que materializan estos enfoques en prototipos de aplicaciones Android on-device, aportando evidencias prácticas sobre ventajas y limitaciones del despliegue local \cite{bagawan_develop_2024}.
+
+En este contexto, el presente artículo en curso investiga la viabilidad de aplicar LLMs ejecutados completamente en el dispositivo a un escenario real del sector agroalimentario, centrado en asistencia para tareas administrativas y documentación oficial en entornos con conectividad limitada. El objetivo es identificar retos de ingeniería del software (diseño, integración, evaluación y mantenimiento) y delimitar problemas abiertos que orienten futuras colaboraciones y líneas de investigación.
 
 
-Las ecuaciones se mostrarán centradas y en una línea separada.
 
-\begin{equation}
-x + y = z
-\end{equation}
-Intente evitar imágenes rasterizadas para diagramas, figuras y gráficas. 
-Siempre que sea posible, utilice gráficos vectoriales en su lugar
-(ver Fig.~\ref{fig1}).
 
-\begin{figure}
-\includegraphics[width=\textwidth]{fig1.eps}
-\caption{Los pies de figura siempre se colocan debajo de la ilustración.
-Los pies cortos aparecerán centrados, mientras que los largos se justificarán 
-de forma automática.}\label{fig1}
-\end{figure}
 
-\begin{theorem}
-Este es un teorema de muestra. El título inicial está en negrita, mientras
-que el siguiente texto aparece en cursiva. Las definiciones, los lemas,
-las proposiciones y los corolarios se mostrarán con un  mismo estilo similar.
-\end{theorem}
-%
-% Los entornos 'definition', 'lemma', 'proposition', 'corollary',
-% 'remark', and 'example' se definen en la clase LLNCS de LaTeX.
-%
-\begin{proof}
-Las demostraciones, ejemplos y acotaciones tienen la palabra inicial en cursiva,
-mientras que el resto del texto aparece en tipografía romana.
-\end{proof}
-Para las citas, se prefiere el uso de corchetes
-y números consecutivos. Citas con etiquetas o autor/año también
-son aceptables. La siguiente bibliografía proporciona una lista de referencias
-de muestra con entradas para artículos de revistas~\cite{ref_article1},
-un capítulo de LNCS~\cite{ref_lncs1}, un libro~\cite{ref_book1},
-actas sin editores~\cite{ref_proc1}, y una página de inicio~\cite{ref_url1}.
-Las citas múltiples se han de agrupar~\cite{ref_article1,ref_lncs1,ref_book1},%
-~\cite{ref_article1,ref_book1,ref_proc1,ref_url1}.
+\section{Caso de uso y motivación}
+
+El sector agroalimentario requiere el cumplimiento de una amplia variedad de obligaciones administrativas, como el registro de labores agrícolas, tratamientos fitosanitarios o inspecciones técnicas. Estas tareas se realizan habitualmente en el propio campo, utilizando dispositivos móviles y, en muchos casos, sin acceso fiable a Internet.
+
+La posibilidad de contar con un asistente basado en lenguaje natural que funcione completamente en el dispositivo podría reducir errores, agilizar la introducción de datos y mejorar el cumplimiento normativo. Sin embargo, las soluciones actuales suelen depender de servicios cloud, lo que limita su aplicabilidad en este contexto y plantea problemas adicionales de privacidad y soberanía del dato.
+
+Este escenario permite identificar de forma clara las tensiones entre las capacidades de los LLMs y las restricciones reales del entorno de ejecución.
+
+\section{Problemas abiertos y retos de ingeniería}
+
+La ejecución de LLMs en dispositivos on-edge introduce una serie de problemas abiertos que aún no están adecuadamente resueltos por las herramientas existentes. Entre ellos destacan la selección y adaptación de modelos de tamaño reducido, la gestión eficiente de memoria y energía, y la evaluación de la calidad de las respuestas en condiciones de recursos limitados.
+
+Desde el punto de vista de la ingeniería del software, se observa una falta de metodologías estandarizadas para diseñar, desplegar y evaluar aplicaciones basadas en LLMs on-edge. Los benchmarks disponibles suelen centrarse en métricas aisladas y no reflejan adecuadamente escenarios de uso reales. Asimismo, la integración de estos modelos en aplicaciones móviles plantea desafíos adicionales relacionados con mantenimiento, actualización y depuración.
+
+Estos problemas sugieren la necesidad de enfoques específicos que tengan en cuenta tanto las restricciones técnicas como los requisitos del dominio.
+
+\section{Metodología y estado actual del trabajo}
+
+El trabajo se encuentra en una fase inicial de desarrollo. Actualmente se está llevando a cabo una revisión del estado del arte y una captura de requisitos mediante cuestionarios dirigidos a profesionales del sector agroalimentario. A partir de estos requisitos se prevé el desarrollo de un prototipo experimental que permita evaluar distintas configuraciones de modelos y técnicas de optimización.
+
+La evaluación se realizará mediante benchmarks específicos del dominio, considerando métricas como latencia, uso de memoria y adecuación funcional. El objetivo no es ofrecer una solución definitiva, sino identificar patrones, limitaciones y oportunidades de mejora que puedan orientar futuras investigaciones.
+
+\section{Conclusiones preliminares y líneas futuras}
+
+Este trabajo pone de manifiesto que la adopción de LLMs on-edge en aplicaciones reales plantea desafíos que van más allá del rendimiento del modelo, afectando directamente a decisiones de diseño y a la disponibilidad de herramientas de ingeniería adecuadas. El caso de uso presentado evidencia la necesidad de enfoques específicos para dominios con restricciones severas de recursos y alta sensibilidad de los datos.
+
+Como trabajo en curso, este artículo pretende fomentar la discusión en la comunidad de Ingeniería del Software y Bases de Datos, y servir como punto de partida para futuras colaboraciones orientadas a cerrar la brecha entre los avances en modelos de lenguaje y su aplicación práctica en entornos on-edge.
+
+
 
 \begin{credits}
 \subsubsection{\ackname} 
-Un encabezado en letra pequeña, negritas y con texto a continuación se usa
-para los agradecimiento generales, por ejemplo: Este estudio ha sido financiado
-por X (referencia número Y).
+Agradecimientos
 \subsubsection{\discintname}
-Si es relevante, los autores pueden realizar una declaración de intereses o declarar
-específicamente que no tienen intereses. La declaración deberá indicarse con un encabezad
-en negrita en tamaño de fuente pequeño debajo de los agradecimientos (opcionales),
-por ejemplo: Los autores no tienen intereses en competencia que declarar que sean
-relevantes para el contenido de este artículo. O: el autor A ha recibido subvenciones
-de investigación de la empresa W. El autor B ha recibido honorarios como orador
-de la empresa X y posee acciones de la empresa Y. El autor C es miembro del comité Z.
+El autor declara que no tiene ningún interés financiero ni relación personal que pudiera influir en el trabajo descrito en este artículo.
 \end{credits}
 %
 % ---- Bibliografía ----
@@ -143,24 +107,7 @@ de la empresa X y posee acciones de la empresa Y. El autor C es miembro del comi
 % \bibliographystyle{splncs04}
 % \bibliography{mybibliography}
 %
-\begin{thebibliography}{8}
-\bibitem{ref_article1}
-Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+\bibliographystyle{splncs04}
+\bibliography{referencias}
 
-\bibitem{ref_lncs1}
-Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-Springer, Heidelberg (2016). \doi{10.10007/1234567890}
-
-\bibitem{ref_book1}
-Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-Location (1999)
-
-\bibitem{ref_proc1}
-Author, A.-B.: Contribution title. In: 9th International Proceedings
-on Proceedings, pp. 1--2. Publisher, Location (2010)
-
-\bibitem{ref_url1}
-LNCS Homepage, \url{http://www.springer.com/lncs}, last accessed 2023/10/25
-\end{thebibliography}
 \end{document}

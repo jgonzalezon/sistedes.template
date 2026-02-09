@@ -1,0 +1,215 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{alipio_role_2025}
+Alipio, M., Bures, M.: The {Role} of {Large} {Language} {Models} in {Designing}
+  {Reliable} {Networks} for {Internet} of {Things}: {A} {Short} {Review} of
+  {Most} {Recent} {Developments}. IEEE Access  \textbf{13},  168527--168545
+  (2025). \doi{10.1109/ACCESS.2025.3614246},
+  \url{https://ieeexplore.ieee.org/document/11179972/}
+
+\bibitem{amini_distributed_2025}
+Amini, H., Mia, M.J., Saadati, Y., Imteaj, A., Nabavirazavi, S., Thakker, U.,
+  Hossain, M.Z., Fime, A.A., Iyengar, S.S.: Distributed {LLMs} and {Multimodal}
+  {Large} {Language} {Models}: {A} {Survey} on {Advances}, {Challenges}, and
+  {Future} {Directions} (Mar 2025). \doi{10.48550/arXiv.2503.16585},
+  \url{http://arxiv.org/abs/2503.16585}, arXiv:2503.16585 [cs]
+
+\bibitem{baccour_active_2025}
+Baccour, E., Erbad, A., Mohamed, A., Hamdi, M., Guizani, M.: Active {Prompt}
+  {Caching} in {Edge} {Networks} for {Generative} {AI} and {LLMs}: {An}
+  {RL}-{Based} {Approach}. In: 2025 {IEEE} {Wireless} {Communications} and
+  {Networking} {Conference} ({WCNC}). pp. 01--07. IEEE, Milan, Italy (Mar
+  2025). \doi{10.1109/WCNC61545.2025.10978306},
+  \url{https://ieeexplore.ieee.org/document/10978306/}
+
+\bibitem{chai_flexquant_2025}
+Chai, Y., Kwen, M., Brooks, D., Wei, G.Y.: {FlexQuant}: {Elastic}
+  {Quantization} {Framework} for {Locally} {Hosted} {LLM} on {Edge} {Devices}
+  (Jan 2025). \doi{10.48550/arXiv.2501.07139},
+  \url{http://arxiv.org/abs/2501.07139}, arXiv:2501.07139 [cs]
+
+\bibitem{fareed_systematic_2025}
+Fareed, M., Fatima, M., Uddin, J., Ahmed, A., Sattar, M.A.: A systematic review
+  of ethical considerations of large language models in healthcare and
+  medicine. Frontiers in Digital Health  \textbf{7},  1653631 (Sep 2025).
+  \doi{10.3389/fdgth.2025.1653631},
+  \url{https://www.frontiersin.org/articles/10.3389/fdgth.2025.1653631/full}
+
+\bibitem{friha_llm-based_2024}
+Friha, O., Amine~Ferrag, M., Kantarci, B., Cakmak, B., Ozgun, A.,
+  Ghoualmi-Zine, N.: {LLM}-{Based} {Edge} {Intelligence}: {A} {Comprehensive}
+  {Survey} on {Architectures}, {Applications}, {Security} and
+  {Trustworthiness}. IEEE Open Journal of the Communications Society
+  \textbf{5},  5799--5856 (2024). \doi{10.1109/OJCOMS.2024.3456549},
+  \url{https://ieeexplore.ieee.org/document/10669603/}
+
+\bibitem{golec_llm-driven_2025}
+Golec, M., Khamayseh, Y., Melhem, S.B., Alwarafy, A.: {LLM}-{Driven} {APT}
+  {Detection} for {6G} {Wireless} {Networks}: {A} {Systematic} {Review} and
+  {Taxonomy}. IEEE Access  \textbf{13},  145271--145288 (2025).
+  \doi{10.1109/ACCESS.2025.3595665},
+  \url{https://ieeexplore.ieee.org/document/11112774/}
+
+\bibitem{hadish_language_2024}
+Hadish, S., Bojković, V., Aloqaily, M., Guizani, M.: Language {Models} at the
+  {Edge}: {A} {Survey} on {Techniques}, {Challenges}, and {Applications}. In:
+  2024 2nd {International} {Conference} on {Foundation} and {Large} {Language}
+  {Models} ({FLLM}). pp. 262--271. IEEE, Dubai, United Arab Emirates (Nov
+  2024). \doi{10.1109/FLLM63129.2024.10852473},
+  \url{https://ieeexplore.ieee.org/document/10852473/}
+
+\bibitem{husom_sustainable_2025}
+Husom, E.J., Goknil, A., Astekin, M., Shar, L.K., Kåsen, A., Sen, S.,
+  Mithassel, B.A., Soylu, A.: Sustainable {LLM} {Inference} for {Edge} {AI}:
+  {Evaluating} {Quantized} {LLMs} for {Energy} {Efficiency}, {Output}
+  {Accuracy}, and {Inference} {Latency} (Apr 2025).
+  \doi{10.48550/arXiv.2504.03360}, \url{http://arxiv.org/abs/2504.03360},
+  arXiv:2504.03360 [cs]
+
+\bibitem{khatiwada_large_2025}
+Khatiwada, K., Hopper, J., Cheatham, J., Joshi, A., Baidya, S.: Large
+  {Language} {Models} in the {IoT} {Ecosystem} -- {A} {Survey} on {Security}
+  {Challenges} and {Applications} (May 2025). \doi{10.48550/arXiv.2505.17586},
+  \url{http://arxiv.org/abs/2505.17586}, arXiv:2505.17586 [cs]
+
+\bibitem{kim_efficient_2025}
+Kim, G.I., Hwang, S., Jang, B.: Efficient {Compressing} and {Tuning} {Methods}
+  for {Large} {Language} {Models}: {A} {Systematic} {Literature} {Review}. ACM
+  Comput. Surv.  \textbf{57}(10),  253:1--253:39 (May 2025).
+  \doi{10.1145/3728636}, \url{https://dl.acm.org/doi/10.1145/3728636}
+
+\bibitem{li_large_2024}
+Li, X., Lu, Z., Cai, D., Ma, X., Xu, M.: Large {Language} {Models} on {Mobile}
+  {Devices}: {Measurements}, {Analysis}, and {Insights}. In: Proceedings of the
+  {Workshop} on {Edge} and {Mobile} {Foundation} {Models}. pp.~1--6. ACM,
+  Minato-ku Tokyo Japan (Jun 2024). \doi{10.1145/3662006.3662059},
+  \url{https://dl.acm.org/doi/10.1145/3662006.3662059}
+
+\bibitem{lin_pushing_2025}
+Lin, Z., Qu, G., Chen, Q., Chen, X., Chen, Z., Huang, K.: Pushing {Large}
+  {Language} {Models} to the {6G} {Edge}: {Vision}, {Challenges}, and
+  {Opportunities} (Jun 2025). \doi{10.48550/arXiv.2309.16739},
+  \url{http://arxiv.org/abs/2309.16739}, arXiv:2309.16739 [cs]
+
+\bibitem{liu_lightweight_2024}
+Liu, H.I., Galindo, M., Xie, H., Wong, L.K., Shuai, H.H., Li, Y.H., Cheng,
+  W.H.: Lightweight {Deep} {Learning} for {Resource}-{Constrained}
+  {Environments}: {A} {Survey}. ACM Comput. Surv.  \textbf{56}(10),
+  267:1--267:42 (Jun 2024). \doi{10.1145/3657282},
+  \url{https://dl.acm.org/doi/10.1145/3657282}
+
+\bibitem{liu_mobilellm_2024}
+Liu, Z., Zhao, C., Iandola, F., Lai, C., Tian, Y., Fedorov, I., Xiong, Y.,
+  Chang, E., Shi, Y., Krishnamoorthi, R., Lai, L., Chandra, V.: {MobileLLM}:
+  {Optimizing} {Sub}-billion {Parameter} {Language} {Models} for {On}-{Device}
+  {Use} {Cases} (Jun 2024). \doi{10.48550/arXiv.2402.14905},
+  \url{http://arxiv.org/abs/2402.14905}, arXiv:2402.14905 [cs]
+
+\bibitem{luo_toward_2025}
+Luo, H., Liu, Y., Zhang, R., Wang, J., Sun, G., Niyato, D., Yu, H., Xiong, Z.,
+  Wang, X., Shen, X.: Toward {Edge} {General} {Intelligence} with
+  {Multiple}-{Large} {Language} {Model} ({Multi}-{LLM}): {Architecture},
+  {Trust}, and {Orchestration} (Jul 2025). \doi{10.48550/arXiv.2507.00672},
+  \url{http://arxiv.org/abs/2507.00672}, arXiv:2507.00672 [cs]
+
+\bibitem{northeastern_university_boston_ma_review_2025}
+{Northeastern University, Boston, MA}, Kompally, V.S.: A {Review} of {Large}
+  {Language} {Models} in {Edge} {Computing}: {Applications}, {Challenges},
+  {Benefits}, and {Deployment} {Strategies}. International journal of data
+  science and machine learning  \textbf{05}(01),  300--322 (Jun 2025).
+  \doi{10.55640/ijdsml-05-01-25},
+  \url{https://www.academicpublishers.org/journals/index.php/ijdsml/article/view/5302/6234}
+
+\bibitem{picano_matching_2025}
+Picano, B., Hoang, D.T., Nguyen, D.N.: A {Matching} {Game} for {LLM} {Layer}
+  {Deployment} in {Heterogeneous} {Edge} {Networks}. IEEE Open Journal of the
+  Communications Society  \textbf{6},  3795--3805 (2025).
+  \doi{10.1109/OJCOMS.2025.3561605},
+  \url{https://ieeexplore.ieee.org/document/10966456/}
+
+\bibitem{pozi_data-augmented_2025}
+Pozi, M.S.M., Sato, Y.: A data-augmented model routing framework for efficient
+  {LLM} deployment in edge–cloud environments. The Journal of Supercomputing
+  \textbf{81}(17), ~1573 (Nov 2025). \doi{10.1007/s11227-025-08034-8},
+  \url{https://link.springer.com/10.1007/s11227-025-08034-8}
+
+\bibitem{qin_empirical_2024}
+Qin, R., Liu, D., Xu, C., Yan, Z., Tan, Z., Jia, Z., Nassereldine, A., Li, J.,
+  Jiang, M., Abbasi, A., Xiong, J., Shi, Y.: Empirical {Guidelines} for
+  {Deploying} {LLMs} onto {Resource}-constrained {Edge} {Devices} (Oct 2024).
+  \doi{10.48550/arXiv.2406.03777}, \url{http://arxiv.org/abs/2406.03777},
+  arXiv:2406.03777 [cs]
+
+\bibitem{sammangi_harnessing_nodate}
+Sammangi, H.: Harnessing {Generative} {AI} and {Large} {Language} {Models} for
+  {Revolutionizing} {Cybersecurity} in the {Internet} of {Things}: {Ethical}
+  and {Privacy} {Implications}
+
+\bibitem{sun_review_2025}
+Sun, K., Wang, X., Miao, X., Zhao, Q.: A review of {AI} edge devices and
+  lightweight {CNN} and {LLM} deployment. Neurocomputing  \textbf{614},  128791
+  (Jan 2025). \doi{10.1016/j.neucom.2024.128791},
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S0925231224015625}
+
+\bibitem{tan_mobilequant_2024}
+Tan, F., Lee, R., Dudziak, �., Hu, S.X., Bhattacharya, S., Hospedales, T.,
+  Tzimiropoulos, G., Martinez, B.: {MobileQuant}: {Mobile}-friendly
+  {Quantization} for {On}-device {Language} {Models} (Oct 2024).
+  \doi{10.48550/arXiv.2408.13933}, \url{http://arxiv.org/abs/2408.13933},
+  arXiv:2408.13933 [cs]
+
+\bibitem{wang_empowering_2025}
+Wang, R., Gao, Z., Zhang, L., Yue, S., Gao, Z.: Empowering large language
+  models to edge intelligence: {A} survey of edge efficient {LLMs} and
+  techniques. Computer Science Review  \textbf{57},  100755 (Aug 2025).
+  \doi{10.1016/j.cosrev.2025.100755},
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1574013725000310}
+
+\bibitem{wang_intelligent_2025}
+Wang, X., Xu, Z., Sui, X.: Intelligent data analysis in edge computing with
+  large language models: applications, challenges, and future directions.
+  Frontiers in Computer Science  \textbf{7},  1538277 (May 2025).
+  \doi{10.3389/fcomp.2025.1538277},
+  \url{https://www.frontiersin.org/articles/10.3389/fcomp.2025.1538277/full}
+
+\bibitem{xu_-device_2024}
+Xu, J., Li, Z., Chen, W., Wang, Q., Gao, X., Cai, Q., Ling, Z.: On-{Device}
+  {Language} {Models}: {A} {Comprehensive} {Review} (Sep 2024).
+  \doi{10.48550/arXiv.2409.00088}, \url{http://arxiv.org/abs/2409.00088},
+  arXiv:2409.00088 [cs]
+
+\bibitem{yan_are_2025}
+Yan, X., Ding, Y.: Are {We} {There} {Yet}? {A} {Measurement} {Study} of
+  {Efficiency} for {LLM} {Applications} on {Mobile} {Devices} (Mar 2025).
+  \doi{10.48550/arXiv.2504.00002}, \url{http://arxiv.org/abs/2504.00002},
+  arXiv:2504.00002 [cs]
+
+\bibitem{yuan_llm-driven_2025}
+Yuan, X., Li, H.: {LLM}-{Driven} {Offloading} {Decisions} for {Edge} {Object}
+  {Detection} in {Smart} {City} {Deployments}. Smart Cities  \textbf{8}(5),
+  ~169 (Oct 2025). \doi{10.3390/smartcities8050169},
+  \url{https://www.mdpi.com/2624-6511/8/5/169}
+
+\bibitem{zhang_edgeshard_2025}
+Zhang, M., Shen, X., Cao, J., Cui, Z., Jiang, S.: {EdgeShard}: {Efficient}
+  {LLM} {Inference} via {Collaborative} {Edge} {Computing}. IEEE Internet of
+  Things Journal  \textbf{12}(10),  13119--13131 (May 2025).
+  \doi{10.1109/JIOT.2024.3524255},
+  \url{https://ieeexplore.ieee.org/document/10818760/}
+
+\bibitem{zhang_toward_2024}
+Zhang, R., He, J., Luo, X., Niyato, D., Kang, J., Xiong, Z., Li, Y., Sikdar,
+  B.: Toward {Democratized} {Generative} {AI} in {Next}-{Generation} {Mobile}
+  {Edge} {Networks} (Nov 2024). \doi{10.48550/arXiv.2411.09148},
+  \url{http://arxiv.org/abs/2411.09148}, arXiv:2411.09148 [cs]
+
+\bibitem{zheng_review_2025}
+Zheng, Y., Chen, Y., Qian, B., Shi, X., Shu, Y., Chen, J.: A {Review} on {Edge}
+  {Large} {Language} {Models}: {Design}, {Execution}, and {Applications} (Feb
+  2025). \doi{10.48550/arXiv.2410.11845},
+  \url{http://arxiv.org/abs/2410.11845}, arXiv:2410.11845 [cs]
+
+\end{thebibliography}
