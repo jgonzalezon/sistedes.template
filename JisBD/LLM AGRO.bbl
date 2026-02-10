@@ -1,0 +1,67 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{bagawan_develop_2024}
+Bagawan, S., G~S, N.: Develop an {On} - {Device} {LLM} {Android} {Application}.
+  In: 2024 8th {International} {Conference} on {Computational} {System} and
+  {Information} {Technology} for {Sustainable} {Solutions} ({CSITSS}). pp.~1--5
+  (Nov 2024). \doi{10.1109/CSITSS64042.2024.10816785},
+  \url{https://ieeexplore.ieee.org/document/10816785/}, iSSN: 2767-1097
+
+\bibitem{friha_llm-based_2024}
+Friha, O., Amine~Ferrag, M., Kantarci, B., Cakmak, B., Ozgun, A.,
+  Ghoualmi-Zine, N.: {LLM}-{Based} {Edge} {Intelligence}: {A} {Comprehensive}
+  {Survey} on {Architectures}, {Applications}, {Security} and
+  {Trustworthiness}. IEEE Open Journal of the Communications Society
+  \textbf{5},  5799--5856 (2024). \doi{10.1109/OJCOMS.2024.3456549},
+  \url{https://ieeexplore.ieee.org/document/10669603/}
+
+\bibitem{kim_efficient_2025}
+Kim, G.I., Hwang, S., Jang, B.: Efficient {Compressing} and {Tuning} {Methods}
+  for {Large} {Language} {Models}: {A} {Systematic} {Literature} {Review}. ACM
+  Comput. Surv.  \textbf{57}(10),  253:1--253:39 (May 2025).
+  \doi{10.1145/3728636}, \url{https://dl.acm.org/doi/10.1145/3728636}
+
+\bibitem{li_large_2024}
+Li, X., Lu, Z., Cai, D., Ma, X., Xu, M.: Large {Language} {Models} on {Mobile}
+  {Devices}: {Measurements}, {Analysis}, and {Insights}. In: Proceedings of the
+  {Workshop} on {Edge} and {Mobile} {Foundation} {Models}. pp.~1--6. ACM,
+  Minato-ku Tokyo Japan (Jun 2024). \doi{10.1145/3662006.3662059},
+  \url{https://dl.acm.org/doi/10.1145/3662006.3662059}
+
+\bibitem{liu_mobilellm_2024}
+Liu, Z., Zhao, C., Iandola, F., Lai, C., Tian, Y., Fedorov, I., Xiong, Y.,
+  Chang, E., Shi, Y., Krishnamoorthi, R., Lai, L., Chandra, V.: {MobileLLM}:
+  {Optimizing} {Sub}-billion {Parameter} {Language} {Models} for {On}-{Device}
+  {Use} {Cases} (Jun 2024). \doi{10.48550/arXiv.2402.14905},
+  \url{http://arxiv.org/abs/2402.14905}, arXiv:2402.14905 [cs]
+
+\bibitem{tan_mobilequant_2024}
+Tan, F., Lee, R., Dudziak, {\L}., Hu, S.X., Bhattacharya, S., Hospedales, T.,
+  Tzimiropoulos, G., Martinez, B.: {MobileQuant}: {Mobile}-friendly
+  {Quantization} for {On}-device {Language} {Models} (Oct 2024).
+  \doi{10.48550/arXiv.2408.13933}, \url{http://arxiv.org/abs/2408.13933},
+  arXiv:2408.13933 [cs]
+
+\bibitem{wang_empowering_2025}
+Wang, R., Gao, Z., Zhang, L., Yue, S., Gao, Z.: Empowering large language
+  models to edge intelligence: {A} survey of edge efficient {LLMs} and
+  techniques. Computer Science Review  \textbf{57},  100755 (Aug 2025).
+  \doi{10.1016/j.cosrev.2025.100755},
+  \url{https://linkinghub.elsevier.com/retrieve/pii/S1574013725000310}
+
+\bibitem{xu_-device_2024}
+Xu, J., Li, Z., Chen, W., Wang, Q., Gao, X., Cai, Q., Ling, Z.: On-{Device}
+  {Language} {Models}: {A} {Comprehensive} {Review} (Sep 2024).
+  \doi{10.48550/arXiv.2409.00088}, \url{http://arxiv.org/abs/2409.00088},
+  arXiv:2409.00088 [cs]
+
+\bibitem{yan_are_2025}
+Yan, X., Ding, Y.: Are {We} {There} {Yet}? {A} {Measurement} {Study} of
+  {Efficiency} for {LLM} {Applications} on {Mobile} {Devices} (Mar 2025).
+  \doi{10.48550/arXiv.2504.00002}, \url{http://arxiv.org/abs/2504.00002},
+  arXiv:2504.00002 [cs]
+
+\end{thebibliography}
