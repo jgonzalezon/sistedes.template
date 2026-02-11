@@ -7,43 +7,47 @@
 \documentclass{sistedes}
 
 \usepackage[spanish,es-tabla]{babel}
-
 \usepackage{graphicx}
+\usepackage{draft-defs}
 
-% Usado para mostrar la figura de ejemplo. 
-%
 \begin{document}
 %
-\title{LLM ejecutados on-edge en el sector agroalimentario}
+\title{LLM ejecutados \emph{on-edge} en el sector agrícola}
 
 %
 %\titlerunning{Título abreviado}
 % Si el título del artículo es demasiado largo para el encabezado,
 % puede establecer un título de artículo abreviado aquí
 %
-\author{Francisco Javier González Ontañón\inst{1}\orcidID{0000-1111-2222-3333} \and
-Segundo Autor\inst{2}\orcidID{1111-2222-3333-4444} \and
-Tercer Autor\inst{3}\orcidID{2222--3333-4444-5555}}
+\author{F. Javier González-Ontañón\inst{1}\orcidID{0000-1111-2222-3333} \and
+Sergio Martin-Segura\inst{1,2}\orcidID{0000-0003-0287-9488} \and
+Miguel Ángel Latre\inst{1,2}\orcidID{0000-0002-6682-8383} \and
+F. Javier Zarazaga-Soria, \inst{1,2}\orcidID{0000-0002-6557-2494}
+}
 %
-\authorrunning{F. Autor et al.}
+\authorrunning{F. J. González-Ontañón \emph{et al.}}
 % Los nombres se abrevian en el encabezado.
 % Si hay más de dos autores, se usa 'et al.'
 %
 \institute{
-Unizar, Zaragoza, Spain\\
-\email{primer@example.com}\\
+Departamento de Informática e Ingeniería de Sistemas,\\Universidad de Zaragoza, Zaragoza, Spain\\
+\email{j.gonzalezontanon@gmail.com}\\
+\and
+Instituto de Investigación en Ingeniería de Aragón, \\Universidad de Zaragoza, Zaragoza, Spain\\
+\email{\{segura,latre,javy\}@unizar.es}\\
+\url{https://i3a.unizar.es/}
 }
 
 %
 \maketitle              % Componer el encabezado de la contribución
 %
 \begin{abstract}
-Los Large Language Models (LLMs) han mostrado un alto rendimiento en tareas de procesamiento del lenguaje natural en infraestructuras cloud; sin embargo, su dependencia de conectividad permanente, la latencia y las preocupaciones sobre privacidad limitan su adopción en entornos con recursos restringidos. Este trabajo presenta una investigación en curso que analiza la viabilidad de ejecutar LLMs directamente en dispositivos \emph{on-edge}, con especial atención a escenarios móviles.
+Los \emph{Large Language Models} (LLM) han mostrado un alto rendimiento en tareas de procesamiento del lenguaje natural en infraestructuras \emph{cloud}; sin embargo, su dependencia de conectividad permanente, la latencia y las preocupaciones sobre privacidad limitan su adopción en entornos con recursos restringidos. Este trabajo presenta una investigación en curso que analiza la viabilidad de ejecutar LLM directamente en dispositivos \emph{on-edge}, con especial atención a escenarios móviles.
 
-El artículo se centra en un caso de uso del sector agroalimentario: la asistencia al rellenado de documentación administrativa en entornos rurales con conectividad limitada. A partir de este escenario, se discuten las restricciones del hardware disponible y las limitaciones actuales de las herramientas de ingeniería del software para diseñar y evaluar aplicaciones basadas en LLMs \emph{on-device}. Más que proponer una solución cerrada, el trabajo identifica problemas abiertos que sirven como base para futuras investigaciones.
+El artículo se centra en un caso de uso del sector agrícola: la asistencia para la cumplimentación de documentación administrativa en entornos rurales con conectividad limitada. A partir de este escenario, se discuten las restricciones del hardware disponible y las limitaciones actuales de las herramientas de ingeniería del software para diseñar y evaluar aplicaciones basadas en LLM \emph{on-device}. En lugar de proponer una solución concreta, el trabajo identifica problemas abiertos que sirven como base para futuras investigaciones.
 
 
-\keywords{LLMs \and on-edge \and on-device  \and agroalimentario}
+\keywords{\emph{Large language models} \and \emph{on-edge} \and \emph{on-device} \and sector agrícola}
 
 \end{abstract}
 %
@@ -52,40 +56,34 @@ El artículo se centra en un caso de uso del sector agroalimentario: la asistenc
 
 \section{Introducción}
 
-Los Large Language Models (LLMs) están impulsando una nueva generación de sistemas capaces de comprender y generar lenguaje natural; sin embargo, su despliegue práctico sigue estando condicionado por sus requisitos computacionales y de memoria. La ejecución en dispositivos móviles plantea un conjunto de restricciones específicas —memoria disponible, latencia, longitud de contexto (\emph{context length})  y motor de inferencia— cuya caracterización empírica en escenarios reales se ha abordado mediante estudios de medida y análisis comparativo \cite{li_large_2024,yan_are_2025}. Estos trabajos muestran que, aunque la ejecución local es posible bajo determinadas condiciones, el rendimiento y la calidad dependen fuertemente del tamaño del modelo y de las optimizaciones aplicadas.
+Los \emph{Large Language Models} (LLM) están impulsando una nueva generación de sistemas capaces de interactuar con el usuario en lenguaje natural; sin embargo, su despliegue práctico sigue estando condicionado por sus elevados requisitos computacionales y de memoria. La ejecución en dispositivos móviles plantea un conjunto de restricciones específicas —memoria disponible, latencia, longitud de contexto (\emph{context length})  y motor de inferencia— cuya caracterización empírica en escenarios reales se ha abordado mediante estudios de medida y análisis comparativo \cite{li_large_2024,yan_are_2025}. Estos trabajos muestran que, aunque la ejecución local es posible bajo determinadas condiciones, el rendimiento y la calidad dependen fuertemente del tamaño del modelo y de las optimizaciones aplicadas.
 
-En paralelo, el uso de soluciones \emph{on-edge}/\emph{on-device} como alternativa a arquitecturas basadas en la nube está creciendo, motivada por la reducción de latencia, la resiliencia frente a conectividad intermitente y la necesidad de mantener los datos cerca de su origen. Diversas revisiones recientes coinciden en que la ejecución de LLMs en dispositivos con recursos limitados es técnicamente viable, pero todavía presenta importantes retos en términos de ingeniería del software, evaluación reproducible y validación en escenarios reales \cite{xu_-device_2024,wang_empowering_2025,friha_llm-based_2024}. 
+En paralelo, el uso de soluciones \emph{on-edge}/\emph{on-device} como alternativa a arquitecturas basadas en la nube está creciendo, motivada por la reducción de latencia, la resiliencia frente a conectividad intermitente y la necesidad de mantener los datos cerca de su origen. Diversas revisiones recientes coinciden en que la ejecución de LLM en dispositivos con recursos limitados es técnicamente viable, pero todavía presenta importantes retos en términos de ingeniería del software, evaluación reproducible y validación en escenarios reales \cite{friha_llm-based_2024,wang_empowering_2025,xu_-device_2024}. 
 
-Para aproximar los LLMs a escenarios restringidos se han propuesto de técnicas , incluyendo cuantización, poda, distilación y enfoques de \emph{parameter-efficient fine-tuning} (PEFT), junto con taxonomías sistemáticas que evidencian la falta de marcos unificados que integren estas decisiones de diseño en pipelines completos de despliegue \cite{kim_efficient_2025}.
+Para aproximar los LLM a escenarios restringidos se han propuesto diferentes técnicas: cuantización, poda, destilación y enfoques de \emph{parameter-efficient fine-tuning} (PEFT), junto con taxonomías sistemáticas que evidencian la falta de marcos unificados que integren estas decisiones de diseño en \emph{pipelines} completos de despliegue \cite{kim_efficient_2025}.
 En el contexto móvil, se exploran tanto arquitecturas \emph{sub-billion} optimizadas para uso local \cite{liu_mobilellm_2024} como técnicas de cuantización específicamente orientadas a hardware móvil \cite{tan_mobilequant_2024}. Además, existen implementaciones tempranas que materializan estos enfoques en prototipos de aplicaciones Android \emph{on-device}, aportando evidencias prácticas sobre las ventajas y limitaciones del despliegue local \cite{bagawan_develop_2024}.
 
-En este contexto, el presente artículo en curso investiga la viabilidad de aplicar LLMs ejecutados completamente en el dispositivo a un escenario real del sector agroalimentario, centrado en la asistencia a tareas administrativas y documentación oficial en entornos con conectividad limitada. El objetivo es identificar retos de ingeniería del software —relativos al diseño, la integración, la evaluación y el mantenimiento— y delimitar problemas abiertos que orienten futuras colaboraciones y líneas de investigación.
-
-
-
+En este contexto, este artículo presenta una investigación en curso sobre la viabilidad de aplicar LLM ejecutados completamente en el dispositivo a un escenario real del sector agrícola, centrado en la asistencia a tareas administrativas y documentación oficial en entornos con conectividad limitada. El objetivo es identificar retos de ingeniería del software —relativos al diseño, la integración, la evaluación y el mantenimiento— y delimitar problemas abiertos que orienten futuras colaboraciones y líneas de investigación.
 
 
 \section{Caso de uso y motivación}
 
-El sector agroalimentario requiere el cumplimiento de una amplia variedad de obligaciones administrativas, como el registro de labores agrícolas, tratamientos fitosanitarios o inspecciones técnicas, muchas de ellas reguladas por normativas nacionales y supranacionales. Estas tareas se realizan habitualmente \emph{in situ}, durante la jornada de trabajo en el campo, utilizando dispositivos móviles como herramienta de registro y consulta. En este contexto, la conectividad a Internet es a menudo limitada o inexistente, lo que dificulta el uso de soluciones basadas exclusivamente en servicios en la nube.
+El sector agrícola requiere el cumplimiento de una amplia variedad de obligaciones administrativas, como el registro de labores agrícolas, tratamientos fitosanitarios o inspecciones técnicas, muchas de ellas reguladas por normativas nacionales y supranacionales. Estas tareas se realizan habitualmente \emph{in situ}, durante la jornada de trabajo en el campo, utilizando dispositivos móviles como herramienta de registro y consulta. En este contexto, la conectividad a Internet es a menudo limitada o inexistente, lo que dificulta el uso de soluciones basadas exclusivamente en servicios en la nube. \marginpar{añadir alguna referencia. ¿El artículo de Mario \url{https://www.sciencedirect.com/science/article/pii/S0957417425034372} puede dar alguna idea?}
 
-Diversos trabajos señalan que los LLMs ejecutados en el propio dispositivo resultan especialmente útiles en entornos con conectividad limitada y fuertes requisitos de privacidad \cite{xu_-device_2024,wang_empowering_2025}. En particular, ejecutar la inferencia directamente en el dispositivo reduce la latencia, mejora la robustez del sistema y evita que datos sensibles salgan del terminal del usuario. Estos aspectos son especialmente relevantes en dominios donde la información gestionada tiene implicaciones legales y requisitos estrictos de trazabilidad y soberanía del dato.
+Diversos trabajos señalan que los LLM ejecutados en el propio dispositivo resultan especialmente útiles en entornos con conectividad limitada y fuertes requisitos de privacidad \cite{wang_empowering_2025,xu_-device_2024}. En particular, ejecutar la inferencia directamente en el dispositivo reduce la latencia, mejora la robustez del sistema y evita que datos sensibles salgan del terminal del usuario. Estos aspectos son especialmente relevantes en dominios donde la información gestionada tiene implicaciones legales y requisitos estrictos de trazabilidad y soberanía del dato.
 
+No obstante, la adopción de LLM en este tipo de escenarios plantea dificultades por las capacidades de los modelos y las restricciones del entorno de ejecución. Diversos estudios señalan que, aunque la ejecución local es técnicamente viable, el rendimiento, la longitud de contexto y la calidad de las respuestas están fuertemente condicionados por las limitaciones de memoria, energía y capacidad de cómputo de los dispositivos móviles \cite{friha_llm-based_2024,yan_are_2025}. Como consecuencia, muchas de las soluciones existentes optan por arquitecturas híbridas o dependen de infraestructuras cloud, lo que reduce su aplicabilidad en entornos rurales y reintroduce problemas de privacidad.
 
-No obstante, la adopción de LLMs en este tipo de escenarios plantea dificultades por las capacidades de los modelos y las restricciones del entorno de ejecución. Diversos estudios señalan que, aunque la ejecución local es técnicamente viable, el rendimiento, la longitud de contexto y la calidad de las respuestas están fuertemente condicionados por las limitaciones de memoria, energía y capacidad de cómputo de los dispositivos móviles \cite{friha_llm-based_2024,yan_are_2025}. Como consecuencia, muchas de las soluciones existentes optan por arquitecturas híbridas o dependen de infraestructuras cloud, lo que reduce su aplicabilidad en entornos rurales y reintroduce problemas de privacidad.
-
-Este caso de uso permite analizar de manera concreta y aplicada los desafíos identificados en la literatura sobre LLMs \emph{on-edge}. El sector agroalimentario se presenta así como un dominio representativo para estudiar la viabilidad de asistentes basados en lenguaje natural ejecutados completamente en el dispositivo, así como para identificar problemas abiertos de ingeniería del software relacionados con el diseño, la integración y la validación de estas soluciones en condiciones reales de uso.
-
-
+Este caso de uso permite analizar de manera concreta y aplicada los desafíos identificados en la literatura sobre LLM \emph{on-edge}. El sector agrícola se presenta así como un dominio representativo para estudiar la viabilidad de asistentes basados en lenguaje natural ejecutados completamente en el dispositivo, así como para identificar problemas abiertos de ingeniería del software relacionados con el diseño, la integración y la validación de estas soluciones en condiciones reales de uso. \marginpar{Comienza a haber repeticiones}
 
 
 \section{Problemas abiertos y retos de ingeniería}
 
-La ejecución de Large Language Models (LLMs) en dispositivos \emph{on-edge} introduce una serie de problemas abiertos que aún no están adecuadamente resueltos por las herramientas y enfoques actuales. Entre los retos más relevantes se encuentran la selección y adaptación de modelos de tamaño reducido, la gestión eficiente de memoria y consumo energético, y la limitación de la longitud de contexto, factores que impactan directamente en la latencia y en la calidad de las respuestas generadas \cite{xu_-device_2024,yan_are_2025}.
+La ejecución de LLM en dispositivos \emph{on-edge} introduce una serie de problemas abiertos que aún no están adecuadamente resueltos por las herramientas y enfoques actuales. Entre los retos más relevantes se encuentran la selección y adaptación de modelos de tamaño reducido, la gestión eficiente de memoria y consumo energético, y la limitación de la longitud de contexto, factores que impactan directamente en la latencia y en la calidad de las respuestas generadas \cite{xu_-device_2024,yan_are_2025}. \marginpar{¿repetido?}
 
-Desde la perspectiva de la ingeniería del software, revisiones recientes señalan una carencia de metodologías estandarizadas para el diseño, despliegue y evaluación de aplicaciones basadas en LLMs ejecutados en el dispositivo. Las revisiones existentes indican que la mayoría de los estudios se centran en métricas aisladas de rendimiento, sin considerar el ciclo de vida completo del sistema ni escenarios de uso continuado en condiciones reales \cite{friha_llm-based_2024}. Esta falta de enfoques integrales dificulta la comparación entre propuestas y limita la transferencia de resultados a aplicaciones prácticas.
+Desde la perspectiva de la ingeniería del software, revisiones recientes señalan una carencia de metodologías estandarizadas para el diseño, despliegue y evaluación de aplicaciones basadas en LLM ejecutados en el dispositivo. Las revisiones existentes indican que la mayoría de los estudios se centran en métricas aisladas de rendimiento, sin considerar el ciclo de vida completo del sistema ni escenarios de uso continuado en condiciones reales \cite{friha_llm-based_2024}. Esta falta de enfoques integrales dificulta la comparación entre propuestas y limita la transferencia de resultados a aplicaciones prácticas.
 
-Asimismo, integrar LLMs \emph{on-device} en aplicaciones móviles introduce dificultades adicionales, como el mantenimiento del sistema, la actualización de los modelos y la depuración de errores en dispositivos heterogéneos y con recursos limitados. Estudios recientes señalan que estos aspectos suelen resolverse de forma puntual y específica para cada caso, y que aún no existen marcos de ingeniería consolidados que permitan gestionar de manera sistemática los compromisos entre privacidad, rendimiento y fiabilidad.
+Asimismo, integrar LLM \emph{on-device} en aplicaciones móviles introduce dificultades adicionales, como el mantenimiento del sistema, la actualización de los modelos y la depuración de errores en dispositivos heterogéneos y con recursos limitados. Estudios recientes señalan que estos aspectos suelen resolverse de forma puntual y específica para cada caso, y que aún no existen marcos de ingeniería consolidados que permitan gestionar de manera sistemática los compromisos entre privacidad, rendimiento y fiabilidad.
  \cite{wang_empowering_2025}.
 
 En conjunto, estos problemas ponen de manifiesto la necesidad de enfoques que tengan en cuenta tanto las restricciones técnicas \emph{on-edge} como los requisitos funcionales y normativos del dominio de aplicación, abriendo un espacio claro para investigaciones orientadas a casos de uso reales y evaluaciones empíricas reproducibles.
@@ -93,30 +91,32 @@ En conjunto, estos problemas ponen de manifiesto la necesidad de enfoques que te
 
 \section{Metodología y estado actual del trabajo}
 
-El trabajo se encuentra en una fase inicial de desarrollo, centrada en la definición del problema y la delimitación del espacio de diseño. En primer lugar, se está llevando a cabo una revisión sistemática del estado del arte sobre Large Language Models ejecutados en dispositivos \emph{on-edge}, con el objetivo de identificar enfoques existentes, limitaciones técnicas y problemas abiertos relevantes \cite{xu_-device_2024,friha_llm-based_2024}. De forma complementaria, se ha iniciado una fase de captura de requisitos mediante cuestionarios dirigidos a profesionales del sector agroalimentario, con el fin de caracterizar escenarios de uso reales, restricciones operativas y necesidades funcionales.
+El trabajo se encuentra en una fase inicial de desarrollo, centrada en la definición del problema y la delimitación del espacio de diseño. En primer lugar, se está llevando a cabo una revisión sistemática del estado del arte sobre Large Language Models ejecutados en dispositivos \emph{on-edge}, con el objetivo de identificar enfoques existentes, limitaciones técnicas y problemas abiertos relevantes \cite{friha_llm-based_2024,xu_-device_2024}. De forma complementaria, se ha iniciado una fase de captura de requisitos mediante cuestionarios dirigidos a profesionales del sector agrícola, con el fin de caracterizar escenarios de uso reales, restricciones operativas y necesidades funcionales.
 
 A partir de los requisitos identificados, se prevé el desarrollo de un prototipo experimental que permita evaluar distintas configuraciones de modelos y técnicas de optimización en un entorno controlado. Este enfoque incremental resulta coherente con la literatura reciente, que subraya la necesidad de validar propuestas \emph{on-device} mediante implementaciones reales y no únicamente a través de evaluaciones sintéticas \cite{yan_are_2025}. El prototipo se concibe como una herramienta exploratoria, orientada a estudiar los compromisos entre rendimiento, consumo de recursos y adecuación funcional.
 
-La evaluación se realizará mediante benchmarks específicos del dominio, considerando métricas como latencia de inferencia, uso de memoria y adecuación funcional de las salidas generadas. Siguiendo las recomendaciones de trabajos previos, se priorizará una evaluación empírica reproducible que refleje condiciones de uso realistas, en lugar de optimizar métricas aisladas \cite{wang_empowering_2025}. El objetivo de esta fase no es ofrecer una solución definitiva, sino identificar patrones, limitaciones y oportunidades de mejora que puedan orientar futuras investigaciones.
+La evaluación se realizará mediante \emph{benchmarks} específicos del dominio, considerando métricas como latencia de inferencia, uso de memoria y adecuación funcional de las salidas generadas. Siguiendo las recomendaciones de trabajos previos, se priorizará una evaluación empírica reproducible que refleje condiciones de uso realistas, en lugar de optimizar métricas aisladas \cite{wang_empowering_2025}. El objetivo de esta fase no es ofrecer una solución definitiva, sino identificar patrones, limitaciones y oportunidades de mejora que puedan orientar futuras investigaciones.
 
 
 \section{Conclusiones preliminares y líneas futuras}
 
-Este trabajo pone de manifiesto que la adopción de Large Language Models (LLMs) ejecutados en dispositivos \emph{on-edge} en aplicaciones reales plantea desafíos que van más allá del rendimiento del modelo, afectando de forma directa a decisiones de diseño, evaluación y mantenimiento del sistema. La evidencia recogida en la literatura reciente coincide en señalar que, aunque la ejecución local es técnicamente viable, su aplicación práctica se encuentra fuertemente condicionada por restricciones de memoria, consumo energético, longitud de contexto y disponibilidad de herramientas de ingeniería del software adecuadas \cite{xu_-device_2024,friha_llm-based_2024,yan_are_2025}.
+Este trabajo pone de manifiesto que la adopción de LLM ejecutados en dispositivos \emph{on-edge} en aplicaciones reales plantea desafíos que van más allá del rendimiento del modelo, afectando de forma directa a decisiones de diseño, evaluación y mantenimiento del sistema. La evidencia recogida en la literatura reciente coincide en señalar que, aunque la ejecución local es técnicamente viable, su aplicación práctica se encuentra fuertemente condicionada por restricciones de memoria, consumo energético, longitud de contexto y disponibilidad de herramientas de ingeniería del software adecuadas \cite{friha_llm-based_2024,xu_-device_2024,yan_are_2025}. \marginpar{repetido}
 
-El caso de uso presentado en el sector agroalimentario refuerza estas conclusiones, al situar el problema en un dominio con conectividad limitada y elevados requisitos de privacidad y trazabilidad de los datos. En este contexto, las soluciones basadas exclusivamente en infraestructuras cloud resultan poco adecuadas, mientras que los enfoques \emph{on-device} requieren una cuidadosa adaptación del modelo y del sistema completo para garantizar su viabilidad \cite{wang_empowering_2025}. Este escenario evidencia la necesidad de enfoques específicos que integren restricciones técnicas y requisitos del dominio desde las fases iniciales de diseño.
+El caso de uso presentado en el sector agrícola refuerza estas conclusiones, al situar el problema en un dominio con conectividad limitada y elevados requisitos de privacidad y trazabilidad de los datos. En este contexto, las soluciones basadas exclusivamente en infraestructuras cloud resultan poco adecuadas, mientras que los enfoques \emph{on-device} requieren una cuidadosa adaptación del modelo y del sistema completo para garantizar su viabilidad \cite{wang_empowering_2025}. Este escenario evidencia la necesidad de enfoques específicos que integren restricciones técnicas y requisitos del dominio desde las fases iniciales de diseño.
 
-Como trabajo en curso, esta investigación no persigue ofrecer una solución cerrada, sino identificar patrones, limitaciones y problemas abiertos que puedan orientar desarrollos futuros. En particular, se abren líneas de investigación relacionadas con la definición de metodologías de evaluación reproducibles, el diseño de prototipos sostenibles a largo plazo y la integración de LLMs \emph{on-edge} en aplicaciones móviles reales. En este sentido, el trabajo puede servir como punto de partida para reducir la brecha existente entre los avances en modelos de lenguaje y su adopción práctica en entornos con recursos limitados.
-
-
+Como trabajo en curso, esta investigación no persigue ofrecer una solución cerrada, sino identificar patrones, limitaciones y problemas abiertos que puedan orientar desarrollos futuros. En particular, se abren líneas de investigación relacionadas con la definición de metodologías de evaluación reproducibles, el diseño de prototipos sostenibles a largo plazo y la integración de LLM \emph{on-edge} en aplicaciones móviles reales. En este sentido, el trabajo puede servir como punto de partida para reducir la brecha existente entre los avances en modelos de lenguaje y su adopción práctica en entornos con recursos limitados.
 
 
 \begin{credits}
+
 \subsubsection{\ackname} 
-Agradecimientos
+Esta publicación es parte del proyecto de I+D+i T59\_23R financiado por el Gobierno de Aragón.
+
 \subsubsection{\discintname}
-El autor declara que no tiene ningún interés financiero ni relación personal que pudiera influir en el trabajo descrito en este artículo.
+Los autores declaran que no tienen ningún interés financiero ni relación personal que pudiera influir en el trabajo descrito en este artículo.
+
 \end{credits}
+
 %
 % ---- Bibliografía ----
 %
