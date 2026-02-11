@@ -1,0 +1,67 @@
+%%% Borradores, notas al margen, ...
+
+\newif\ifborrador
+\borradortrue
+
+\newcounter{marginpar_counter}
+\setcounter{marginpar_counter}{0}
+
+\let\oldmarginpar\marginpar
+
+\setlength{\marginparwidth}{0.8in}
+
+\ifborrador
+\renewcommand\marginpar[1]{
+\addtocounter{marginpar_counter}{1}%
+\fbox{\textsf{\arabic{marginpar_counter}}}$\rightarrow$
+\oldmarginpar{\raggedright\scriptsize\textsf{$\leftarrow$\fbox{\arabic{marginpar_counter}}
+#1}}} \else
+\renewcommand\marginpar[1]{}
+\fi
+
+\ifborrador
+\newcommand\marginparX[1]{
+$\rightarrow$\oldmarginpar{\raggedright\scriptsize\textsf{$\leftarrow$
+#1}}} \else
+\newcommand\marginparX[1]{}
+\fi
+
+\newenvironment{nota}
+{%begin code
+\addtocounter{marginpar_counter}{1}
+\begin{quotation}
+\begin{footnotesize}
+\begin{sf}
+\noindent\fbox{\textsf{\arabic{marginpar_counter}}}\hrulefill
+
+}
+{%end code
+\par\noindent\rule{\linewidth}{.25pt}
+\end{sf}
+\end{footnotesize}
+\end{quotation}
+}
+
+\ifborrador
+\newcommand\tachado[1]{
+\sout{#1}\addtocounter{marginpar_counter}{1}\fbox{\textsf{\arabic{marginpar_counter}}}
+} \else
+\newcommand\tachado[1]{}
+\fi
+
+\newcommand\principio[0]{
+% \ifborrador \footnotetext{Borrador para presentar al Journal of Environmental Management --- \today} \fi
+}
+
+\newcommand\fin[0]{
+\ifborrador
+	\noindent
+	\begin{minipage}[H]{\textwidth}
+		\rule{\linewidth}{0.5mm}
+		Fecha: \textbf{\today}
+		
+		Número de notas al margen: \textbf{\arabic{marginpar_counter}}
+
+		\rule{\linewidth}{0.5mm}
+	\end{minipage}
+\fi }
