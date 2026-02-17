@@ -8,7 +8,7 @@
 
 \usepackage[spanish,es-tabla]{babel}
 \usepackage{graphicx}
-\usepackage{draft-defs}
+
 
 \begin{document}
 %
@@ -47,27 +47,20 @@ Los \emph{Large Language Models} (LLM) han mostrado un alto rendimiento en infra
 El artículo se centra en un caso del sector agrícola: asistencia para cumplimentar documentación administrativa en campo y con conectividad limitada. A partir de este escenario, se discuten restricciones del hardware y limitaciones de las herramientas de ingeniería del software para diseñar y evaluar aplicaciones basadas en LLM \emph{on-device}, identificando problemas abiertos para futuras investigaciones.
 
 
-
 \keywords{\emph{Large language models} \and \emph{on-edge} \and \emph{on-device} \and sector agrícola}
 
 \end{abstract}
-%
-%
-%
+
 
 \section{Introducción}
 
 Los \emph{Large Language Models} (LLM) están impulsando una nueva generación de sistemas capaces de interactuar con el usuario en lenguaje natural; sin embargo, su despliegue práctico sigue estando condicionado por sus elevados requisitos computacionales y de memoria. La ejecución en dispositivos móviles plantea restricciones específicas —memoria disponible, latencia, longitud de contexto (\emph{context length}) y motor de inferencia— cuya caracterización empírica en escenarios reales se ha abordado mediante estudios de medida y análisis comparativo \cite{li_large_2024,yan_are_2025}. Estos trabajos muestran que, aunque la ejecución local es posible bajo determinadas condiciones, el rendimiento y la calidad dependen fuertemente del tamaño del modelo y de las optimizaciones aplicadas.
 
-
 En paralelo, el uso de soluciones \emph{on-edge}/\emph{on-device} como alternativa a arquitecturas basadas en la nube está creciendo, motivada por la reducción de latencia, la resiliencia frente a conectividad intermitente y la necesidad de mantener los datos cerca de su origen. Diversas revisiones recientes coinciden en que la ejecución de LLM en dispositivos con recursos limitados es técnicamente viable, pero todavía presenta retos en términos de ingeniería del software y validación en escenarios reales \cite{friha_llm-based_2024,wang_empowering_2025,xu_-device_2024}. 
-
 
 Para aproximar los LLM a escenarios restringidos se han propuesto diferentes técnicas: cuantización, poda, destilación y enfoques de \emph{parameter-efficient fine-tuning} (PEFT), junto con taxonomías sistemáticas que evidencian la falta de marcos unificados que integren estas decisiones de diseño en \emph{pipelines} completos de despliegue \cite{kim_efficient_2025}. En el contexto móvil, se exploran tanto arquitecturas \emph{sub-billion} optimizadas para uso local \cite{liu_mobilellm_2024} como técnicas de cuantización orientadas a hardware móvil \cite{tan_mobilequant_2024}. Además, existen implementaciones tempranas que materializan estos enfoques en prototipos de aplicaciones Android \emph{on-device}, aportando evidencias prácticas sobre las ventajas y limitaciones del despliegue local \cite{bagawan_develop_2024}.
 
-
 El artículo analiza la viabilidad de LLM \emph{on-device} en un caso real del sector agrícola, centrado en asistencia administrativa, con el fin de identificar retos de ingeniería y problemas abiertos para futuras investigaciones.
-
 
 
 \section{Caso de uso y motivación}
@@ -77,31 +70,20 @@ El sector agrícola atraviesa un proceso de digitalización en el que la gestió
 En este contexto, la ejecución de LLM directamente en el dispositivo resulta especialmente pertinente cuando existen requisitos estrictos de privacidad y trazabilidad \cite{wang_empowering_2025,xu_-device_2024}. No obstante, su adopción está condicionada por las limitaciones de los entornos con recursos restringidos \cite{friha_llm-based_2024,yan_are_2025}, lo que exige equilibrar rendimiento, eficiencia y protección del dato en el diseño del sistema.
 
 
-
-
-
 \section{Problemas abiertos y retos de ingeniería}
 
 La ejecución de LLM en dispositivos \emph{on-edge} plantea retos técnicos, como la selección y adaptación de modelos pequeños, la gestión eficiente de memoria y energía y la limitación de la longitud de contexto, con impacto directo en latencia y calidad de respuesta \cite{xu_-device_2024,yan_are_2025}.
 
-
-
 Desde la ingeniería del software, revisiones recientes señalan la falta de metodologías estandarizadas para diseñar, desplegar y evaluar aplicaciones basadas en LLM \emph{on-device}. La mayoría de estudios se centra en métricas aisladas, sin considerar el ciclo de vida completo ni uso continuado en condiciones reales \cite{friha_llm-based_2024}, lo que dificulta comparar propuestas y transferir resultados.
 
-
-
-Además, la integración en móviles introduce retos de mantenimiento, actualización y depuración en entornos heterogéneos y limitados, todavía abordados de forma ad hoc y sin marcos consolidados para gestionar compromisos entre privacidad, rendimiento y fiabilidad \cite{wang_empowering_2025}.
-
+Además, la integración en móviles introduce retos de mantenimiento, actualización y depuración en entornos heterogéneos y limitados, todavía abordados de forma \emph{ad hoc} y sin marcos consolidados para gestionar compromisos entre privacidad, rendimiento y fiabilidad \cite{wang_empowering_2025}.
 
 
 \section{Metodología y estado actual del trabajo}
 
 El trabajo se encuentra en una fase inicial, centrada en delimitar el problema y el espacio de diseño. Se está realizando una revisión sistemática del estado del arte sobre LLM en \emph{on-edge} para identificar enfoques, limitaciones y problemas abiertos \cite{friha_llm-based_2024,xu_-device_2024}. Además, se ha iniciado la captura de requisitos mediante cuestionarios a profesionales del sector agrícola.
 
-
-
 Con los requisitos identificados, se prevé desarrollar un prototipo para evaluar configuraciones de modelos y técnicas de optimización en un entorno controlado, alineado con la necesidad de validar propuestas \emph{on-device} mediante implementaciones reales \cite{yan_are_2025}. La evaluación empleará \emph{benchmarks} del dominio y métricas como latencia, uso de memoria y adecuación funcional, priorizando condiciones realistas y reproducibles \cite{wang_empowering_2025}. Asimismo, se considerarán como resultados los avances en el diseño de LLM adaptados al contexto \emph{on-edge}, incluyendo la caracterización teórica y empírica de las propiedades necesarias para su viabilidad en dispositivos con recursos limitados.
-
 
 
 \section{Conclusiones preliminares y líneas futuras}
@@ -109,7 +91,6 @@ Con los requisitos identificados, se prevé desarrollar un prototipo para evalua
 La adopción de LLM \emph{on-edge} en aplicaciones reales plantea desafíos que afectan al diseño, evaluación y mantenimiento del sistema. La literatura subraya la necesidad de integrar limitaciones del dispositivo, estrategias de optimización y herramientas de ingeniería del software para lograr despliegues sostenibles y evaluaciones rigurosas \cite{friha_llm-based_2024,xu_-device_2024,yan_are_2025}.
 
 El caso agrícola ilustra estas tensiones en un entorno con restricciones operativas y requisitos estrictos de gestión del dato, donde la adecuación funcional exige adaptar tanto el modelo como la arquitectura \cite{wang_empowering_2025}. Como continuidad, se trabajará en sistematizar criterios de evaluación y analizar la integración efectiva de LLM \emph{on-edge} en aplicaciones móviles reales.
-
 
 
 \begin{credits}
